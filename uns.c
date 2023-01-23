@@ -39,7 +39,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 
 /**
  * print_unsigned - prints unsigned integer numbers
- * @ap: argument pointer
+ * @arg: argument pointer
  * @params: the parameters struct
  *
  * Return: bytes printed
@@ -62,7 +62,7 @@ int print_unsigned(va_list arg, params_t *params)
 
 /**
  * print_address - prints address
- * @ap: argument pointer
+ * @arg: argument pointer
  * @params: the parameters struct
  *
  * Return: bytes printed
