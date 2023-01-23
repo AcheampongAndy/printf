@@ -108,7 +108,7 @@ int print_S(va_list arg, params_t *params)
 {
 	char *str = va_arg(arg, char *);
 	char *hex;
-	int sum = 0;
+	int total = 0;
 
 	if ((int)(!str))
 		return (_puts(NULL_STRING));
@@ -116,8 +116,8 @@ int print_S(va_list arg, params_t *params)
 	{
 		if ((*str > 0 && *str < 32) || *str >= 127)
 		{
-			sum += _putchar('\\');
-			sum += _putchar('x');
+			total += _putchar('\\');
+			total += _putchar('x');
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
 				total += _putchar('0');
