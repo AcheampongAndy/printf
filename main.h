@@ -107,4 +107,4 @@ char *get_precision(char *p, params_t *params, va_list arg);
 
 int _printf(const char *format, ...);
 
-#endif 
+#endif
