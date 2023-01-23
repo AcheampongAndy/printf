@@ -1,22 +1,26 @@
 #include "main.h"
 
 /**
- * str - prints string to stdout
- * @string: list
- * Return: number of char
+ * init_params - clears struct fields and reset buf
+ * @params: the parameters struct
+ * @ap: the argument pointer
+ * Return: void
  */
-int str(va_list string)
+
+void init_params(params_t *params, va_list arg)
 {
-	int len;
-	char *str;
+	params->unsign = 0;
 
-	str = va_arg(string, char *);
+	params->plus_flag = 0;
+	params->space_flag = 0;
+	params->hashtag_flag = 0;
+	params->zero_flag = 0;
+	params->minus_flag = 0;
 
-	if (str == NULL)
-		str = "(null)";
-	len = 0;
+	params->width = 0;
+	params->precision = UINT_MAX;
 
-	while (str[len] != '\0')
-		len = len + _putchar(str[len]);
-	return (len);
+	params->h_modifier = 0;
+	params->l_modifier = 0;
+	(void)arg;
 }

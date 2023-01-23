@@ -1,74 +1,52 @@
 #include "main.h"
-/**
- * print_opt - function to check which specifier to print
- * @format: string being passed
- * @array: array of struct opts
- * @arg: list of arguments to print
- * Return: numb of char to be printed
- */
-int print_opt(const char *format, fmt_t *array, va_list arg)
-{
-	char a;
-	int count = 0, b = 0, c = 0;
-
-	a = format[b];
-	while (a != '\0')
-	{
-		if (a == '%')
-		{
-			c = 0;
-			b++;
-			a = format[b];
-			while (array[c].type != NULL &&
-			       a != *(array[c].type))
-				c++;
-			if (array[c].type != NULL)
-				count = count + array[c].f(arg);
-			else
-			{
-				if (a == '\0')
-					return (-1);
-				if (a != '%')
-					count += _putchar('%');
-				count += _putchar(a);
-			}
-		}
-		else
-			count += _putchar(a);
-		b++;
-		a = format[b];
-	}
-	return (count);
-}
 
 /**
- * _printf - prints output according to format
- * @format: string being passed
- * Return: char to be printed
+ * _printf - prints and input into the standard output
+ * @format: the format string
+ * Return: number of bytes printed
  */
+
 int _printf(const char *format, ...)
+
 {
+	int total = 0;
 	va_list arg;
-	int a = 0;
+	char *a, *s;
 
-	fmt_t ops[] = {
-		{"c", cha},
-		{"s", str},
-		{"d", _int},
-		{"b", _bin},
-		{"i", _int},
-		{"u", _ui},
-		{"o", _oct},
-		{"x", _hex_l},
-		{"X", _hex_u},
-		{"R", _rot13},
-		{NULL, NULL}
-	};
+	params_t params = PARAMS_INIT;
 
-	if (format == NULL)
-		return (-1);
 	va_start(arg, format);
-	a = print_opt(format, ops, arg);
+
+	/* checking for NULL char */
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (a = (char *)format; *a; a++)
+	{
+		init_params(&params, arg);
+		if (*a != '%')
+		{
+			total += _putchar(*a);
+			continue;
+		}
+		s = a;
+		a++;
+		while (get_flag(a, &params))
+		{
+			a++;
+		}
+		a = get_width(p, &params, arg);
+		a = get_precision(a, &params, arg);
+		if (get_modifier(a, &params))
+			a++;
+		if (!get_specifier(a))
+			total += print_from_to(s, a,
+					params.l_modifier || params.h_modifier ? a - 1 : 0);
+		else
+			total += get_print_func(a, arg, &params);
+	}
+	_putchar(BUF_FLUSH);
 	va_end(arg);
-	return (a);
+	return (total);
 }
