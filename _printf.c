@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * print_op - function to check which specifier to print
+ * print_opt - function to check which specifier to print
  * @format: string being passed
- * @print_arr: array of struct opts
- * @list: list of arguments to print
+ * @array: array of struct opts
+ * @arg: list of arguments to print
  * Return: numb of char to be printed
  */
 int print_opt(const char *format, fmt_t *array, va_list arg)
@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 	int a = 0;
 
 	fmt_t ops[] = {
-		{"c", ch},
+		{"c", cha},
 		{"s", str},
 		{"d", _int},
 		{"b", _bin},

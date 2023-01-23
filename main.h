@@ -20,5 +20,17 @@ typedef struct fmt
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_opt(const char *format, fmt_t *array, va_list arg);
+int _strlen(char *string);
+int _bin(va_list bin);
+int cha(va_list charac);
+int _hex_str(unsigned int n, unsigned int hex, char alpha);
+int _hex_u(va_list hexa);
+int _hex_l(va_list hexa);
+int _int(va_list integ);
+int _oct(va_list octo);
+int _rot13(va_list rot);
+int str(va_list string);
+int _ui(va_list unsign);
 
 #endif
