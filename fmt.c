@@ -43,7 +43,7 @@ int (*get_specifier(char *s))(va_list arg, params_t *params)
 /**
  * get_print_func - finds the format function
  * @s: string of the format
- * @ap: argument pointer
+ * @arg: argument pointer
  * @params: the parameters struct
  * Return: the number of bytes printed
  */
@@ -117,7 +117,7 @@ int get_modifier(char *s, params_t *params)
  * get_width - gets the width from the format string
  * @s: the format string
  * @params: the parameters struct
- * @ap: the argument pointer
+ * @arg: the argument pointer
  * Return: new pointer
  */
 

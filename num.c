@@ -2,7 +2,7 @@
 
 /**
  * print_from_to - prints a range of char addresses
- * @start: starting address
+ * @s: starting address
  * @stop: stopping address
  * @except: except address
  *
@@ -23,7 +23,7 @@ int print_from_to(char *s, char *stop, char *except)
 
 /**
  * print_rev - prints string in reverse
- * @ap: string
+ * @arg: string
  * @params: the parameters struct
  *
  * Return: number bytes printed
@@ -47,7 +47,7 @@ int print_rev(va_list arg, params_t *params)
 
 /**
  * print_rot13 - prints string in rot13
- * @ap: string
+ * @arg: string
  * @params: the parameters struct
  *
  * Return: number bytes printed
