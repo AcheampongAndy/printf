@@ -19,9 +19,9 @@
 	2. Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
 7. Handle the following conversion specifier: p.
 8. Handle the following flag characters for non-custom conversion specifiers:
-	1. +
+	1.\+
 	2. space
-	3. #
+	3. \#
 9. Handle the following length modifiers for non-custom conversion specifiers:
 	1. l
 	2. h
